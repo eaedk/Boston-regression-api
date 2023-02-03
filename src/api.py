@@ -95,10 +95,18 @@ def make_prediction(
             "LSTAT",
         ],
     )
+    # Dataframe visualization
+    print("*"*30,"Input Dataframe","*"*30)
+    print(df.to_string(justify="center")) 
+    print("*"*70)
+    print("*"*30,"Input Dataframe Info","*"*30)
+    print(df.info())
+    print("*"*70)
 
     X = processing_FE(dataset=df, scaler=scaler, imputer=None, encoder=None, FE=None)
 
     model_output = ml_model.predict(X).tolist()
+    print("INFO:    PREDICTION DONE")
 
     # print(type(model_output))
     # print(model_output)
